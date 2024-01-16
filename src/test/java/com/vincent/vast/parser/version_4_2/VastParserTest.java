@@ -33,6 +33,7 @@ class VastParserTest {
         CustomVast result = VastParser.parseXml(vastXmlContent);
 
         assertThat(result).isNotNull();
+        assertThat(result.getFirstAd()).isNotEmpty();
     }
 
 }
