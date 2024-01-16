@@ -1,54 +1,65 @@
-<!-- got it from https://docs.broadsign.com/broadsign-ayuda/vast-sample-xml.html -->
-<VAST version="2.0">
-    <Ad id="601364">
+<VAST version="4.2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <Ad id="20001" sequence="1" >
         <InLine>
-            <AdSystem>Adsystem Example</AdSystem>
-            <AdTitle>VAST 2.0</AdTitle>
-            <Description>VAST 2.0</Description>
-            <Error>http://myErrorURL/error</Error>
-            <Impression>http://myTrackingURL/impression</Impression>
+            <AdSystem version="1.0">iabtechlab</AdSystem>
+            <Error><![CDATA[https://example.com/error]]></Error>
+            <Extensions>
+                <Extension type="iab-Count">
+                    <total_available>
+                        <![CDATA[ 2 ]]>
+                    </total_available>
+                </Extension>
+            </Extensions>
+            <Impression id="Impression-ID"><![CDATA[https://example.com/track/impression]]></Impression>
+            <Pricing model="cpm" currency="USD">
+                <![CDATA[ 25.00 ]]>
+            </Pricing>
+            <AdServingId>a532d16d-4d7f-4440-bd29-2ec0e693fc80</AdServingId>
+            <AdTitle>iabtechlab video ad</AdTitle>
+            <AdVerifications>
+                <Verification>
+                    <JavaScriptResource>
+                        <![CDATA[https://verificationcompany1.com/verification_script1.js]]>
+                    </JavaScriptResource>
+                </Verification>
+                <Verification>
+                    <JavaScriptResource>
+                        <![CDATA[https://verificationcompany.com/untrusted.js]]>
+                    </JavaScriptResource>
+                </Verification>
+            </AdVerifications>
+            <Advertiser>IAB Sample Company</Advertiser>
+            <Category authority="foo" />
             <Creatives>
-                <Creative AdID="12345">
+                <Creative id="5480" sequence="1" adId="2447226">
                     <Linear>
-                        <Duration>00:00:30</Duration>
                         <TrackingEvents>
-                            <Tracking event="creativeView">http://myTrackingURL/creativeView</Tracking>
-                            <Tracking event="start">http://myTrackingURL/start</Tracking>
-                            <Tracking event="midpoint">http://myTrackingURL/midpoint</Tracking>
-                            <Tracking event="firstQuartile">http://myTrackingURL/firstQuartile</Tracking>
-                            <Tracking event="thirdQuartile">http://myTrackingURL/thirdQuartile</Tracking>
-                            <Tracking event="complete">http://myTrackingURL/complete</Tracking>
+                            <Tracking event="start" ><![CDATA[https://example.com/tracking/start]]></Tracking>
+                            <Tracking event="progress" offset="00:00:10"><![CDATA[http://example.com/tracking/progress-10]]></Tracking>
+                            <Tracking event="firstQuartile"><![CDATA[https://example.com/tracking/firstQuartile]]></Tracking>
+                            <Tracking event="midpoint"><![CDATA[https://example.com/tracking/midpoint]]></Tracking>
+                            <Tracking event="thirdQuartile"><![CDATA[https://example.com/tracking/thirdQuartile]]></Tracking>
+                            <Tracking event="complete"><![CDATA[https://example.com/tracking/complete]]></Tracking>
                         </TrackingEvents>
-                        <VideoClicks>
-                            <ClickThrough>http://www.examplemedia.com</ClickThrough>
-                            <ClickTracking>http://myTrackingURL/click</ClickTracking>
-                        </VideoClicks>
+                        <Duration>00:00:16</Duration>
                         <MediaFiles>
-                            <MediaFile delivery="progressive" type="video/x-flv" bitrate="500" width="400" height="300"
-                                       scalable="true" maintainAspectRatio="true">
-                                http://demo.examplemedia.com/video/acudeo/Carrot_400x300_500kb.flv
+                            <MediaFile id="5241" delivery="progressive" type="video/mp4" bitrate="2000" width="1280" height="720" minBitrate="1500" maxBitrate="2500" scalable="1" maintainAspectRatio="1" codec="H.264">
+                                <![CDATA[https://iab-publicfiles.s3.amazonaws.com/vast/VAST-4.0-Short-Intro.mp4]]>
+                            </MediaFile>
+                            <MediaFile id="5244" delivery="progressive" type="video/mp4" bitrate="1000" width="854" height="480" minBitrate="700" maxBitrate="1500" scalable="1" maintainAspectRatio="1" codec="H.264">
+                                <![CDATA[https://iab-publicfiles.s3.amazonaws.com/vast/VAST-4.0-Short-Intro-mid-resolution.mp4]]>
+                            </MediaFile>
+                            <MediaFile id="5246" delivery="progressive" type="video/mp4" bitrate="600" width="640" height="360" minBitrate="500" maxBitrate="700" scalable="1" maintainAspectRatio="1" codec="H.264">
+                                <![CDATA[https://iab-publicfiles.s3.amazonaws.com/vast/VAST-4.0-Short-Intro-low-resolution.mp4]]>
                             </MediaFile>
                         </MediaFiles>
+                        <VideoClicks>
+                            <ClickThrough id="blog">
+                                <![CDATA[https://iabtechlab.com]]>
+                            </ClickThrough>
+                        </VideoClicks>
                     </Linear>
-                </Creative>
-                <Creative AdID="601364-Companion">
-                    <CompanionAds>
-                        <Companion width="300" height="250">
-                            <StaticResource creativeType="image/jpeg">
-                                http://demo.examplemedia.com/vast/this_is_the_ad.jpg
-                            </StaticResource>
-                            <TrackingEvents>
-                                <Tracking event="creativeView">http://myTrackingURL/tracking</Tracking>
-                            </TrackingEvents>
-                            <CompanionClickThrough>http://www.examplemedia.com</CompanionClickThrough>
-                        </Companion>
-                        <Companion width="728" height="90">
-                            <StaticResource creativeType="image/jpeg">
-                                http://demo.examplemedia.com/vast/trackingbanner
-                            </StaticResource>
-                            <CompanionClickThrough>http://www.examplemedia.com</CompanionClickThrough>
-                        </Companion>
-                    </CompanionAds>
+                    <UniversalAdId idRegistry="Ad-ID" >8465</UniversalAdId>
                 </Creative>
             </Creatives>
         </InLine>
